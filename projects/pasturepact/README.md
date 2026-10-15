@@ -4,6 +4,12 @@
 
 I built PasturePact in one month while working with its founder. This farm-direct marketplace remains in development, awaiting founder go-to-market. The public demo is in test mode and collects no real payment. These selected complete source files are shared with permission.
 
+## What is included
+
+The [source/](source/) folder contains 16 files: two Edge Function handlers, nine shared modules, two SQL migrations, and three test files. Together they expose checkout submission, database transaction logic, background payment work, provider recovery, signature validation, and the supporting request/configuration helpers. The backend uses TypeScript, Supabase/PostgreSQL, and Stripe integrations.
+
+The earlier [cart.ts](cart.ts) and [types.ts](types.ts) excerpts remain here for browser-cart state and its contracts. The backend reading order below follows the larger source selection.
+
 ## Read a checkout through the backend
 
 1. [create-checkout/index.ts](source/supabase/functions/create-checkout/index.ts) takes a user-scoped request, maps the cart contract, requires an idempotency key, and invokes the checkout transaction.
@@ -16,5 +22,18 @@ I built PasturePact in one month while working with its founder. This farm-direc
 ## Why these choices matter
 
 An idempotency key identifies a repeated command so a retry can receive its earlier result. Database locks and quote-version checks keep the accepted price tied to the order. The outbox separates transactional order creation from provider calls. Recovery code treats an uncertain provider response as something to reconcile, rather than permission to create another payment.
+
+## Run the included tests
+
+From the portfolio root, with Node.js 22.18+ and npm installed:
+
+```sh
+npm ci
+npm run test:backend
+```
+
+The recorded October 15, 2026 run passed **70 tests across three files**, covering signature validation, stored payment-worker configuration, and group-operation recovery. The tests import the actual selected modules and replace database/provider I/O with controlled fakes. `npm run check` also runs the source-hash checks and the 19 original utility tests across the portfolio, including the cart examples.
+
+## Publication scope
 
 The SQL files are selected migrations with dependencies on the private schema; they are not a standalone database installation. Code and mock tests do not prove a completed live purchase. Test commands and results are in [VERIFICATION.md](../../VERIFICATION.md).

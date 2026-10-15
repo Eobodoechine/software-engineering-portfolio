@@ -4,6 +4,16 @@ I build full-stack products and AI tools. **PropertyVision is my first productio
 
 I built PropertyVision and TaxAhead with less than $1,000 in combined spend, and built PasturePact in one month. Those are my reported build figures, not monthly operating costs. I have founder permission to share the TaxAhead and PasturePact demos and selected source. More code is available on request.
 
+## Projects and current source
+
+| Project | Product status | Public code |
+| --- | --- | --- |
+| [PropertyVision](https://github.com/Eobodoechine/propertyvision) | Published NEO Venturez product; my first production system. | Full application snapshot in its own repository: interface, APIs, queue, worker, AI research, valuation, and persistence. |
+| [TaxAhead](projects/taxahead/) | Work in progress, awaiting founder go-to-market. | 16 files under `source/`: complete answer/search handlers, ingestion and shared modules, test support, and 2 test files. |
+| [PasturePact](projects/pasturepact/) | Work in progress, awaiting founder go-to-market; public demo uses test mode. | 16 files under `source/`: checkout and payment-worker handlers, shared modules, 2 SQL migrations, and 3 test files. |
+
+Start with PropertyVision's [code tour](https://github.com/Eobodoechine/propertyvision/blob/main/CODE_TOUR.md) to follow an entire application. The founder examples below expose complete backend modules and their tests. Each project's README gives a reading order and explains what is included.
+
 ## PropertyVision — full application
 
 **[Full PropertyVision repository](https://github.com/Eobodoechine/propertyvision) · [Live product](https://demo.neoventurez.com/) · [Read the code end to end](https://github.com/Eobodoechine/propertyvision/blob/main/CODE_TOUR.md)**
@@ -59,6 +69,27 @@ A farm-direct marketplace built in one month. The selected backend source shows 
 | Resume Tailor | [Repository](https://github.com/Eobodoechine/resume-tailor) | Evidence-based resume preparation. |
 | Loop Engineering | [Repository](https://github.com/Eobodoechine/loop-engineering) | Agent workflows and independent verification. |
 
-## Run and inspect
+## Run the included checks
 
-See [VERIFICATION.md](VERIFICATION.md) for test commands, results, and their scope. [provenance.json](provenance.json) records exact source revisions and file hashes. New founder examples contain complete source modules with their local imports preserved; they are selected slices rather than complete deployable founder repositories. No customer records, provider credentials, or private repository history are included. Founder excerpts are shared for portfolio review; this repository does not grant an additional open-source license for them.
+From this repository's root, with Node.js 22.18+ and npm installed:
+
+```sh
+npm ci
+npm run check
+```
+
+With Deno installed, also run:
+
+```sh
+npm run test:taxahead
+```
+
+The recorded October 15, 2026 run passed **131 tests**: 19 original utility tests, 70 PasturePact backend tests, and 42 TaxAhead backend tests. `npm run check` checks the file list and source hashes, then runs the first 89 tests. The Deno command runs the remaining 42 with runtime network access denied; it may download public dependencies before execution. See [VERIFICATION.md](VERIFICATION.md) for the exact scope and expected tracing warning.
+
+These tests use fictional data and controlled service boundaries. They do not prove a live purchase, database migration, or deployed AI workflow. PropertyVision has separate [build and local HTTP checks](https://github.com/Eobodoechine/propertyvision/blob/main/VERIFICATION.md).
+
+## Publication scope
+
+[provenance.json](provenance.json) records source revisions and file hashes. The founder examples preserve complete selected modules and their local imports; the private applications' full UI, schema, and deployment are not included. The earlier address, budget, reranking, and cart examples remain alongside the larger source selections. The standalone budget experiment is not connected to PropertyVision's request path.
+
+No customer records, provider credentials, or private repository history are included. Founder excerpts are shared with permission for portfolio review; this repository does not grant an additional open-source license for them. More code is available on request.
