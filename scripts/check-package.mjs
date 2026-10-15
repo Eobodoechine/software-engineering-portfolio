@@ -17,6 +17,8 @@ const allowed = new Set([
   'projects/propertyvision/addressNormalizer.ts', 'projects/taxahead/README.md',
   'projects/taxahead/kb-reranker.ts', 'projects/pasturepact/README.md',
   'projects/pasturepact/cart.ts', 'projects/pasturepact/types.ts',
+  'projects/propertyvision/usage-budget.js', 'projects/propertyvision/SYSTEM.md',
+  'tests/usage-budget.test.mjs',
 ]);
 function walk(dir, prefix = '') {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {

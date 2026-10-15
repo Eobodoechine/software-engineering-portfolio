@@ -6,7 +6,7 @@ I worked with TaxAhead's founder. The demo and selected source sample are shared
 
 TaxAhead is a tax-readiness application built with React, TypeScript, TanStack Start, and Supabase. Its code includes document extraction, evidence organization, readiness scoring, and grounded question answering.
 
-**Current status:** The deployed public site and sign-in page are available. The application workspace requires authentication. This review did not exercise authenticated document workflows or verify all integrations. The product prepares evidence for review; it does not file returns.
+**Current status:** Work in progress, awaiting the founder's go-to-market launch. The deployed public site and sign-in page are available; the application workspace requires authentication. The product prepares evidence for review; it does not file returns. This portfolio review has not verified all authenticated workflows or integrations.
 
 ## Selected code
 

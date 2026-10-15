@@ -39,6 +39,17 @@
       "sample_sha256": "b4d8992e91dada9a394b01f3d6adcdf03ce6628d52284a2246bbaa33e722b266",
       "changes": "Only the ShareUnits, CatalogOffering, and CartSelection type declarations are included.",
       "source_sha256": "f2dc4091617c33d0cdec47b522f09fd4ba597d7da1ba7e9a84024b930aca3c31"
+    },
+    {
+      "project": "PropertyVision",
+      "source_revision": "7263708075fa0325363c00e767a8d5984a0a5636",
+      "source_path": "src/server/utils/localDemo.js",
+      "source_worktree_modified": true,
+      "source_state": "Untracked source file at this checkout revision; snapshot provenance, not a deployed-revision claim.",
+      "source_sha256": "be45d4c92efd565d22904bec50aa11033d7c25e76a7cab0d1743e5605b9b63ad",
+      "sample_path": "projects/propertyvision/usage-budget.js",
+      "sample_sha256": "be45d4c92efd565d22904bec50aa11033d7c25e76a7cab0d1743e5605b9b63ad",
+      "changes": "Unchanged source file, renamed for the portfolio."
     }
   ]
 }

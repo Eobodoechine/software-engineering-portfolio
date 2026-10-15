@@ -1,20 +1,27 @@
 # Nnamdi Obodoechine | Software engineering portfolio
 
-I build web applications and tools for AI-assisted development. PropertyVision was my first production system. I worked with the founders of PasturePact and TaxAhead, who have allowed me to share their demos and selected code samples.
+I build integrated web products and tools for AI-assisted development. PropertyVision, the product behind demo.neoventurez.com, was my first production system. It is my fully integrated, published product available for people to use. PasturePact and TaxAhead are works in progress, awaiting their founders' go-to-market launches. I have permission to share their demos and public code samples.
+
+I built PropertyVision and TaxAhead with less than $1,000 in spend, and built PasturePact in one month. These are my reported build figures, not monthly operating costs. More of the codebases is available on request.
+
+**Start with [PropertyVision's live product](https://demo.neoventurez.com/) and [end-to-end walkthrough](projects/propertyvision/SYSTEM.md).**
 
 ## Projects and current status
 
 | Project | Demo | Code | Status as inspected October 15, 2026 |
 | --- | --- | --- | --- |
-| **PropertyVision** | [Open demo](https://demo.neoventurez.com/) | [Selected sample](projects/propertyvision/) · [Existing public repository](https://github.com/Eobodoechine/PropertyVision1) | My first production system. The public property-analysis page is available without sign-in. A new full valuation was not run for this review. |
-| **PasturePact** | [Open site](https://pasturepact.netlify.app/) · [Fictional listing demo](https://pasturepact.netlify.app/demo) | [Selected sample](projects/pasturepact/) | A deployed marketplace prototype in test mode. The homepage says no real payment is collected. |
-| **TaxAhead** | [Open site](https://tanstack-start-ts.taxahead.workers.dev/) | [Selected sample](projects/taxahead/) | A deployed tax-readiness application. The public site is accessible; the application workspace requires sign-in. |
+| **PropertyVision / NEO Venturez** | [Use the product](https://demo.neoventurez.com/) | [Selected sample](projects/propertyvision/) · [Existing public repository](https://github.com/Eobodoechine/PropertyVision1) | Live, fully integrated product; my first production system. The analysis page is available without sign-in. |
+| **PasturePact** | [Open site](https://pasturepact.netlify.app/) · [Fictional listing demo](https://pasturepact.netlify.app/demo) | [Selected sample](projects/pasturepact/) | Work in progress, awaiting the founder's go-to-market launch. The deployed demo is in test mode and collects no real payment. |
+| **TaxAhead** | [Open site](https://tanstack-start-ts.taxahead.workers.dev/) | [Selected sample](projects/taxahead/) | Work in progress, awaiting the founder's go-to-market launch. The existing application workspace requires sign-in. |
+
+The lifecycle descriptions above are my account as the builder. This portfolio's checks cover public page access and the supplied code tests; they do not independently certify every live product workflow or valuation result.
 
 The selected code below is public and can be read without access to the private founder repositories.
 
 ## Start with the code
 
 - **[PropertyVision: address matching](projects/propertyvision/addressNormalizer.ts)** shows normalization and a heuristic for detecting repeated properties across source formats. [Context and limitations](projects/propertyvision/README.md).
+- **[PropertyVision: usage budgets](projects/propertyvision/usage-budget.js)** shows estimated-cost reservations, usage limits, and refusal when accounting state is unavailable. [System walkthrough](projects/propertyvision/SYSTEM.md).
 - **[TaxAhead: retrieval ranking](projects/taxahead/kb-reranker.ts)** shows an external AI service integration, response validation, and a deterministic fallback when the service fails. [Context and limitations](projects/taxahead/README.md).
 - **[PasturePact: cart and retry state](projects/pasturepact/cart.ts)** shows separation of demo drafts from ordinary drafts and reuse of checkout command identifiers after a lost response. [Context and limitations](projects/pasturepact/README.md).
 - **[Tests](tests/samples.test.mjs)** exercise these examples with fictional inputs, malformed provider responses, and corrupted browser state.
@@ -42,11 +49,11 @@ Use Node.js 22.18 or newer. There are no package dependencies to install.
 npm run check
 ```
 
-The test suite uses only fictional inputs and mock service responses. It makes no live AI requests, connects to no production database, and performs no payment operation. Twelve focused tests passed locally on Node.js 26.9.0.
+The test suite uses only fictional inputs, temporary usage ledgers, and mock service responses. It makes no live AI requests, connects to no production database, and performs no payment operation. Nineteen focused tests cover the supplied examples.
 
 ## Source and permissions
 
-[provenance.json](provenance.json) records the source revisions, file hashes, and excerpt changes. Tests were added for this portfolio. PropertyVision's address sample is a snapshot of a modified working file, with example addresses in comments replaced by fictional addresses. The original working copy was not changed.
+[provenance.json](provenance.json) records the source revisions, file hashes, and excerpt changes. Tests were added for this portfolio. PropertyVision's address sample is a snapshot of a modified working file, with example addresses in comments replaced by fictional addresses. Its usage-budget sample is an unchanged snapshot of an untracked source file. The original working copies were not changed.
 
 PasturePact and TaxAhead samples are shared with founder permission for public portfolio review. Their full repositories and private history remain private. No additional open-source license is granted for those excerpts by this portfolio. The linked tools retain their own repository licenses.
 
