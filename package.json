@@ -7,6 +7,11 @@
   },
   "scripts": {
     "test": "node --experimental-strip-types --test tests/*.test.mjs",
-    "check": "node scripts/check-package.mjs && npm test"
+    "check": "node scripts/check-package.mjs && npm test && npm run test:backend",
+    "test:backend": "vitest run --config vitest.config.ts",
+    "test:taxahead": "deno test --no-check --allow-env --deny-net projects/taxahead/source/supabase/functions/ask-taxahead/index.test.ts projects/taxahead/source/supabase/functions/_shared/document-ingest.test.ts"
+  },
+  "devDependencies": {
+    "vitest": "5.0.1"
   }
 }

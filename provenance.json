@@ -50,6 +50,326 @@
       "sample_path": "projects/propertyvision/usage-budget.js",
       "sample_sha256": "be45d4c92efd565d22904bec50aa11033d7c25e76a7cab0d1743e5605b9b63ad",
       "changes": "Unchanged source file, renamed for the portfolio."
+    },
+    {
+      "project": "taxahead",
+      "source_revision": "29a6922492d237b7d8617cf67e46813087864ed4",
+      "source_path": "supabase/functions/ask-taxahead/index.test.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "6626975e4c0fcdc914110aad0a2d57e05f0c3701f0e47c6c403b38d06b5d2374",
+      "sample_path": "projects/taxahead/source/supabase/functions/ask-taxahead/index.test.ts",
+      "sample_sha256": "6626975e4c0fcdc914110aad0a2d57e05f0c3701f0e47c6c403b38d06b5d2374",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "taxahead",
+      "source_revision": "29a6922492d237b7d8617cf67e46813087864ed4",
+      "source_path": "supabase/functions/ask-taxahead/index.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "7cd6b3645b5b1d6c795ac918f12c276e8f1fdb9bc0a672730003e193d15be8dc",
+      "sample_path": "projects/taxahead/source/supabase/functions/ask-taxahead/index.ts",
+      "sample_sha256": "7cd6b3645b5b1d6c795ac918f12c276e8f1fdb9bc0a672730003e193d15be8dc",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "taxahead",
+      "source_revision": "29a6922492d237b7d8617cf67e46813087864ed4",
+      "source_path": "supabase/functions/_shared/supabase-client-types.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "7bd6b554883e7f63e122dc2fbd13fbaac3c89d0498a5a6b5b5717fc22155ed9a",
+      "sample_path": "projects/taxahead/source/supabase/functions/_shared/supabase-client-types.ts",
+      "sample_sha256": "7bd6b554883e7f63e122dc2fbd13fbaac3c89d0498a5a6b5b5717fc22155ed9a",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "taxahead",
+      "source_revision": "29a6922492d237b7d8617cf67e46813087864ed4",
+      "source_path": "supabase/functions/_shared/paid-entitlements.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "02e4ffee4b9adee8329369f4a8edb8bd0dcd5ac4a26576b2fe66b1164382be78",
+      "sample_path": "projects/taxahead/source/supabase/functions/_shared/paid-entitlements.ts",
+      "sample_sha256": "02e4ffee4b9adee8329369f4a8edb8bd0dcd5ac4a26576b2fe66b1164382be78",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "taxahead",
+      "source_revision": "29a6922492d237b7d8617cf67e46813087864ed4",
+      "source_path": "supabase/functions/_shared/kb-reranker.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "9cdba828217dae43050b006b1f5d2a7390205c053712e2f916aa2a83f64d7c07",
+      "sample_path": "projects/taxahead/source/supabase/functions/_shared/kb-reranker.ts",
+      "sample_sha256": "9cdba828217dae43050b006b1f5d2a7390205c053712e2f916aa2a83f64d7c07",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "taxahead",
+      "source_revision": "29a6922492d237b7d8617cf67e46813087864ed4",
+      "source_path": "supabase/functions/_shared/kb-embeddings.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "fd1d3288634a80dbbc86f609dcfb86c82eae3b73817bf65db6dc97e478c624d1",
+      "sample_path": "projects/taxahead/source/supabase/functions/_shared/kb-embeddings.ts",
+      "sample_sha256": "fd1d3288634a80dbbc86f609dcfb86c82eae3b73817bf65db6dc97e478c624d1",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "taxahead",
+      "source_revision": "29a6922492d237b7d8617cf67e46813087864ed4",
+      "source_path": "supabase/functions/_shared/logger.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "8e7b5a693b53dcefb65290fa7b5b9ff4eec5e1a5afe9a4201d2b2fe4c541f380",
+      "sample_path": "projects/taxahead/source/supabase/functions/_shared/logger.ts",
+      "sample_sha256": "8e7b5a693b53dcefb65290fa7b5b9ff4eec5e1a5afe9a4201d2b2fe4c541f380",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "taxahead",
+      "source_revision": "29a6922492d237b7d8617cf67e46813087864ed4",
+      "source_path": "supabase/functions/_shared/redaction.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "3c62f05939977de6a2db7ff75035afc43bcac533266fe9ece71038e2a7203379",
+      "sample_path": "projects/taxahead/source/supabase/functions/_shared/redaction.ts",
+      "sample_sha256": "3c62f05939977de6a2db7ff75035afc43bcac533266fe9ece71038e2a7203379",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "taxahead",
+      "source_revision": "29a6922492d237b7d8617cf67e46813087864ed4",
+      "source_path": "supabase/functions/_shared/tracing.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "900a5eb1c97acc145ffabcad286375fe7ed0e9b56a4cb95e7cbd954b377cf9a9",
+      "sample_path": "projects/taxahead/source/supabase/functions/_shared/tracing.ts",
+      "sample_sha256": "900a5eb1c97acc145ffabcad286375fe7ed0e9b56a4cb95e7cbd954b377cf9a9",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "taxahead",
+      "source_revision": "29a6922492d237b7d8617cf67e46813087864ed4",
+      "source_path": "supabase/functions/_shared/extraction.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "dff8375b21858c0767c32063a6ce23ba485cedc4101d9d5926d17702209d1557",
+      "sample_path": "projects/taxahead/source/supabase/functions/_shared/extraction.ts",
+      "sample_sha256": "dff8375b21858c0767c32063a6ce23ba485cedc4101d9d5926d17702209d1557",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "taxahead",
+      "source_revision": "29a6922492d237b7d8617cf67e46813087864ed4",
+      "source_path": "supabase/functions/_shared/document-form-coverage.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "1d9a219326df2dcd3a96a8d3f8aca3ce7c23ee63797821a41915fe5d7e613cfb",
+      "sample_path": "projects/taxahead/source/supabase/functions/_shared/document-form-coverage.ts",
+      "sample_sha256": "1d9a219326df2dcd3a96a8d3f8aca3ce7c23ee63797821a41915fe5d7e613cfb",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "taxahead",
+      "source_revision": "29a6922492d237b7d8617cf67e46813087864ed4",
+      "source_path": "supabase/functions/_shared/filing-requirements.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "f764c895d1dc41bb89a512b5a9f29fb526bd878db05fd66a1d26a46b10bd72fc",
+      "sample_path": "projects/taxahead/source/supabase/functions/_shared/filing-requirements.ts",
+      "sample_sha256": "f764c895d1dc41bb89a512b5a9f29fb526bd878db05fd66a1d26a46b10bd72fc",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "taxahead",
+      "source_revision": "29a6922492d237b7d8617cf67e46813087864ed4",
+      "source_path": "supabase/functions/_shared/test-support/fake-client.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "600440d409291ccaa63efe82456dd7ffc6ab53943b0226c6d167cc042f6624fb",
+      "sample_path": "projects/taxahead/source/supabase/functions/_shared/test-support/fake-client.ts",
+      "sample_sha256": "600440d409291ccaa63efe82456dd7ffc6ab53943b0226c6d167cc042f6624fb",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "taxahead",
+      "source_revision": "29a6922492d237b7d8617cf67e46813087864ed4",
+      "source_path": "supabase/functions/_shared/document-ingest.test.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "2229262d62aa590745173664688cf11651d4178fd513d31174ac982bd52adf26",
+      "sample_path": "projects/taxahead/source/supabase/functions/_shared/document-ingest.test.ts",
+      "sample_sha256": "2229262d62aa590745173664688cf11651d4178fd513d31174ac982bd52adf26",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "taxahead",
+      "source_revision": "29a6922492d237b7d8617cf67e46813087864ed4",
+      "source_path": "supabase/functions/_shared/document-ingest.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "6d4283215b2383ed2e578c9dbe5f5874cd0c5a3ae1b8f9ce06ab27998411bff4",
+      "sample_path": "projects/taxahead/source/supabase/functions/_shared/document-ingest.ts",
+      "sample_sha256": "6d4283215b2383ed2e578c9dbe5f5874cd0c5a3ae1b8f9ce06ab27998411bff4",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "taxahead",
+      "source_revision": "29a6922492d237b7d8617cf67e46813087864ed4",
+      "source_path": "supabase/functions/search-knowledge/index.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "5f678fbcb5ca05c9649649ebbcecab53ff1747592ce5a11816dd57b175d4ab28",
+      "sample_path": "projects/taxahead/source/supabase/functions/search-knowledge/index.ts",
+      "sample_sha256": "5f678fbcb5ca05c9649649ebbcecab53ff1747592ce5a11816dd57b175d4ab28",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "pasturepact",
+      "source_revision": "897f54f8ad53ee4c3147097e8dd63b134f5bf5f2",
+      "source_path": "supabase/migrations/20260926000700_quote_checkout_binding.sql",
+      "source_worktree_modified": false,
+      "source_sha256": "7ceeaeb94852e568015408f60bbe87f3e7438ab64220eb3ba9413e209ae7325d",
+      "sample_path": "projects/pasturepact/source/supabase/migrations/20260926000700_quote_checkout_binding.sql",
+      "sample_sha256": "7ceeaeb94852e568015408f60bbe87f3e7438ab64220eb3ba9413e209ae7325d",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "pasturepact",
+      "source_revision": "897f54f8ad53ee4c3147097e8dd63b134f5bf5f2",
+      "source_path": "supabase/migrations/20260917000500_buyer_checkout_v2.sql",
+      "source_worktree_modified": false,
+      "source_sha256": "771c9f07dcd047434c7df6862288d8378847367c3648981e2206069b8ef44d76",
+      "sample_path": "projects/pasturepact/source/supabase/migrations/20260917000500_buyer_checkout_v2.sql",
+      "sample_sha256": "771c9f07dcd047434c7df6862288d8378847367c3648981e2206069b8ef44d76",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "pasturepact",
+      "source_revision": "897f54f8ad53ee4c3147097e8dd63b134f5bf5f2",
+      "source_path": "tests/group-provider-operation.test.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "c08e92028fddc2cc23d6a7e2bebde2ea086715e12811d05b9ef5afd45f8eb83a",
+      "sample_path": "projects/pasturepact/source/tests/group-provider-operation.test.ts",
+      "sample_sha256": "c08e92028fddc2cc23d6a7e2bebde2ea086715e12811d05b9ef5afd45f8eb83a",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "pasturepact",
+      "source_revision": "897f54f8ad53ee4c3147097e8dd63b134f5bf5f2",
+      "source_path": "supabase/functions/_shared/provider-lane.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "22dd5164e23a2b32c719776036f5772c6f14d308b9ca2674df1c63587616f893",
+      "sample_path": "projects/pasturepact/source/supabase/functions/_shared/provider-lane.ts",
+      "sample_sha256": "22dd5164e23a2b32c719776036f5772c6f14d308b9ca2674df1c63587616f893",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "pasturepact",
+      "source_revision": "897f54f8ad53ee4c3147097e8dd63b134f5bf5f2",
+      "source_path": "supabase/functions/_shared/group-provider-operation.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "1b619c298e3999c5c3ca01b92e3a0fda2382e60adf0de3821e04234de9b6e624",
+      "sample_path": "projects/pasturepact/source/supabase/functions/_shared/group-provider-operation.ts",
+      "sample_sha256": "1b619c298e3999c5c3ca01b92e3a0fda2382e60adf0de3821e04234de9b6e624",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "pasturepact",
+      "source_revision": "897f54f8ad53ee4c3147097e8dd63b134f5bf5f2",
+      "source_path": "supabase/functions/_shared/stripe-api.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "817f65b76bb0b695d1f8c9f3c81145b914d88bd67b75c3a74a21b6ba96df18fa",
+      "sample_path": "projects/pasturepact/source/supabase/functions/_shared/stripe-api.ts",
+      "sample_sha256": "817f65b76bb0b695d1f8c9f3c81145b914d88bd67b75c3a74a21b6ba96df18fa",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "pasturepact",
+      "source_revision": "897f54f8ad53ee4c3147097e8dd63b134f5bf5f2",
+      "source_path": "supabase/functions/_shared/business-payment-contract.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "20658c94c741405f199ee025352792de80bbe552092f0d34a324d51498946d79",
+      "sample_path": "projects/pasturepact/source/supabase/functions/_shared/business-payment-contract.ts",
+      "sample_sha256": "20658c94c741405f199ee025352792de80bbe552092f0d34a324d51498946d79",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "pasturepact",
+      "source_revision": "897f54f8ad53ee4c3147097e8dd63b134f5bf5f2",
+      "source_path": "tests/payment-worker-stored-config.test.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "b89822b73c6c2b2fbc8a8d58692731933cca54237f046508013a7bc394ca7160",
+      "sample_path": "projects/pasturepact/source/tests/payment-worker-stored-config.test.ts",
+      "sample_sha256": "b89822b73c6c2b2fbc8a8d58692731933cca54237f046508013a7bc394ca7160",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "pasturepact",
+      "source_revision": "897f54f8ad53ee4c3147097e8dd63b134f5bf5f2",
+      "source_path": "tests/stripe-signature.test.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "b03996d3a717411ee96d373297fa4e72a4811653795328e9a7ca05977d4d08a3",
+      "sample_path": "projects/pasturepact/source/tests/stripe-signature.test.ts",
+      "sample_sha256": "b03996d3a717411ee96d373297fa4e72a4811653795328e9a7ca05977d4d08a3",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "pasturepact",
+      "source_revision": "897f54f8ad53ee4c3147097e8dd63b134f5bf5f2",
+      "source_path": "supabase/functions/_shared/stripe-signature.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "c295ac1f80e55df38933d412ac2f9c99029fd03da0f6a9a119cbc1baecc45426",
+      "sample_path": "projects/pasturepact/source/supabase/functions/_shared/stripe-signature.ts",
+      "sample_sha256": "c295ac1f80e55df38933d412ac2f9c99029fd03da0f6a9a119cbc1baecc45426",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "pasturepact",
+      "source_revision": "897f54f8ad53ee4c3147097e8dd63b134f5bf5f2",
+      "source_path": "supabase/functions/payment-worker/index.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "c98714b214b41a844f006df7de48a10a77cacbfe0fc9cbfe4da39c6e43c040fd",
+      "sample_path": "projects/pasturepact/source/supabase/functions/payment-worker/index.ts",
+      "sample_sha256": "c98714b214b41a844f006df7de48a10a77cacbfe0fc9cbfe4da39c6e43c040fd",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "pasturepact",
+      "source_revision": "897f54f8ad53ee4c3147097e8dd63b134f5bf5f2",
+      "source_path": "supabase/functions/_shared/trace.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "7e264f17e303785fffb00e645e84eb0d106cff1529d1992e8066592f1b2e3b6a",
+      "sample_path": "projects/pasturepact/source/supabase/functions/_shared/trace.ts",
+      "sample_sha256": "7e264f17e303785fffb00e645e84eb0d106cff1529d1992e8066592f1b2e3b6a",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "pasturepact",
+      "source_revision": "897f54f8ad53ee4c3147097e8dd63b134f5bf5f2",
+      "source_path": "supabase/functions/_shared/supabase.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "d600e639e23ad935817a7132fc1a5e0df77d5a6f5293b82e097f723eeda379d3",
+      "sample_path": "projects/pasturepact/source/supabase/functions/_shared/supabase.ts",
+      "sample_sha256": "d600e639e23ad935817a7132fc1a5e0df77d5a6f5293b82e097f723eeda379d3",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "pasturepact",
+      "source_revision": "897f54f8ad53ee4c3147097e8dd63b134f5bf5f2",
+      "source_path": "supabase/functions/_shared/http.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "ef5923bb590fe5d87a62b64e50b58accd64c87d76cd71b2b92d49119d808bed3",
+      "sample_path": "projects/pasturepact/source/supabase/functions/_shared/http.ts",
+      "sample_sha256": "ef5923bb590fe5d87a62b64e50b58accd64c87d76cd71b2b92d49119d808bed3",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "pasturepact",
+      "source_revision": "897f54f8ad53ee4c3147097e8dd63b134f5bf5f2",
+      "source_path": "supabase/functions/create-checkout/index.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "89fac937e755d76498235652d0ca5f9b8a4c7e9426fb59051f7750ebed0b0efe",
+      "sample_path": "projects/pasturepact/source/supabase/functions/create-checkout/index.ts",
+      "sample_sha256": "89fac937e755d76498235652d0ca5f9b8a4c7e9426fb59051f7750ebed0b0efe",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
+    },
+    {
+      "project": "pasturepact",
+      "source_revision": "897f54f8ad53ee4c3147097e8dd63b134f5bf5f2",
+      "source_path": "supabase/functions/_shared/cors.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "404bb0b432c39aa30ec47111cef0bf64193ad85157661bb080ff57bd57c59a85",
+      "sample_path": "projects/pasturepact/source/supabase/functions/_shared/cors.ts",
+      "sample_sha256": "404bb0b432c39aa30ec47111cef0bf64193ad85157661bb080ff57bd57c59a85",
+      "changes": "Complete source file, unchanged. Local import paths preserved."
     }
   ]
 }

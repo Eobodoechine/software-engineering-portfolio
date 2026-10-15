@@ -1,59 +1,64 @@
 # Nnamdi Obodoechine | Software engineering portfolio
 
-I build integrated web products and tools for AI-assisted development. PropertyVision, the product behind demo.neoventurez.com, was my first production system. It is my fully integrated, published product available for people to use. PasturePact and TaxAhead are works in progress, awaiting their founders' go-to-market launches. I have permission to share their demos and public code samples.
+I build full-stack products and AI tools. **PropertyVision is my first production system and a published product people can use.** TaxAhead and PasturePact are founder projects in development, awaiting their go-to-market launches.
 
-I built PropertyVision and TaxAhead with less than $1,000 in spend, and built PasturePact in one month. These are my reported build figures, not monthly operating costs. More of the codebases is available on request.
+I built PropertyVision and TaxAhead with less than $1,000 in combined spend, and built PasturePact in one month. Those are my reported build figures, not monthly operating costs. I have founder permission to share the TaxAhead and PasturePact demos and selected source. More code is available on request.
 
-**Start with [PropertyVision's live product](https://demo.neoventurez.com/) and [end-to-end walkthrough](projects/propertyvision/SYSTEM.md).**
+## PropertyVision — full application
 
-## Projects and current status
+**[Full PropertyVision repository](https://github.com/Eobodoechine/propertyvision) · [Live product](https://demo.neoventurez.com/) · [Read the code end to end](https://github.com/Eobodoechine/propertyvision/blob/main/CODE_TOUR.md)**
 
-| Project | Demo | Code | Status as inspected October 15, 2026 |
-| --- | --- | --- | --- |
-| **PropertyVision / NEO Venturez** | [Use the product](https://demo.neoventurez.com/) | [Selected sample](projects/propertyvision/) · [Existing public repository](https://github.com/Eobodoechine/PropertyVision1) | Live, fully integrated product; my first production system. The analysis page is available without sign-in. |
-| **PasturePact** | [Open site](https://pasturepact.netlify.app/) · [Fictional listing demo](https://pasturepact.netlify.app/demo) | [Selected sample](projects/pasturepact/) | Work in progress, awaiting the founder's go-to-market launch. The deployed demo is in test mode and collects no real payment. |
-| **TaxAhead** | [Open site](https://tanstack-start-ts.taxahead.workers.dev/) | [Selected sample](projects/taxahead/) | Work in progress, awaiting the founder's go-to-market launch. The existing application workspace requires sign-in. |
+A property-analysis application that takes an address through AI-backed research, comparable-sales selection, and an estimated after-repair value. The repository includes the interface, API, queue, worker, research engine, valuation logic, persistence, and configuration.
 
-The lifecycle descriptions above are my account as the builder. This portfolio's checks cover public page access and the supplied code tests; they do not independently certify every live product workflow or valuation result.
+| Read this | What it shows |
+| --- | --- |
+| [Product interface](https://github.com/Eobodoechine/propertyvision/blob/main/src/app/page.tsx) | Address submission, asynchronous status, saved reports, and comparable-sales results. |
+| [Analysis API](https://github.com/Eobodoechine/propertyvision/blob/main/src/app/api/analyze/route.ts) | The boundary between a user request, cached data, and queued work. |
+| [Redis job queue](https://github.com/Eobodoechine/propertyvision/blob/main/src/server/utils/jobQueue.ts) | Stream consumption, concurrent jobs, retries, cancellation, and result persistence. |
+| [Research orchestration](https://github.com/Eobodoechine/propertyvision/blob/main/src/server/comprehensive-comp-search-v10.ts) | How subject research, comparable searches, filtering, and valuation fit together. |
+| [Vertex AI integration](https://github.com/Eobodoechine/propertyvision/blob/main/src/server/vertex-details.ts) | Provider requests, timeouts, parsing, caching, and reconciliation. |
+| [Valuation engine](https://github.com/Eobodoechine/propertyvision/blob/main/src/server/arvCalculator.js) | The calculation behind the report and its supporting metadata. |
 
-The selected code below is public and can be read without access to the private founder repositories.
+**Stack:** Next.js, React, TypeScript, Node.js, Redis, Vertex AI, and Google Maps. The public repository is a sanitized working-source snapshot; its manifest records the publication changes. It is not a claim of an exact deployed revision.
 
-## Start with the code
+## TaxAhead — grounded AI and document ingestion
 
-- **[PropertyVision: address matching](projects/propertyvision/addressNormalizer.ts)** shows normalization and a heuristic for detecting repeated properties across source formats. [Context and limitations](projects/propertyvision/README.md).
-- **[PropertyVision: standalone usage-budget sample](projects/propertyvision/usage-budget.js)** shows estimated-cost reservations and refusal when accounting state is unavailable. Its reservation functions are not wired into requests in the inspected app snapshot. [System walkthrough](projects/propertyvision/SYSTEM.md).
-- **[TaxAhead: retrieval ranking](projects/taxahead/kb-reranker.ts)** shows an external AI service integration, response validation, and a deterministic fallback when the service fails. [Context and limitations](projects/taxahead/README.md).
-- **[PasturePact: cart and retry state](projects/pasturepact/cart.ts)** shows separation of demo drafts from ordinary drafts and reuse of checkout command identifiers after a lost response. [Context and limitations](projects/pasturepact/README.md).
-- **[Tests](tests/samples.test.mjs)** exercise these examples with fictional inputs, malformed provider responses, and corrupted browser state.
+**[Source and reading guide](projects/taxahead/) · [Demo](https://tanstack-start-ts.taxahead.workers.dev/)**
 
-These excerpts show specific engineering decisions. They are not full application repositories or evidence that every deployed workflow is complete. The existing PropertyVision repository is a separate source archive; it is not asserted to match the current demo deployment.
+Tax-readiness software built with React, TypeScript, TanStack Start, and Supabase. The selected backend source shows how a question becomes an answer grounded in retrieved evidence, with explicit citation validation and provider-failure handling.
+
+- [Complete answer handler](projects/taxahead/source/supabase/functions/ask-taxahead/index.ts): authenticated context, retrieval, model response validation, citation checks, and run tracing.
+- [Complete search handler](projects/taxahead/source/supabase/functions/search-knowledge/index.ts): query embeddings, hybrid-search RPC, jurisdiction/year filters, reranking, and source metadata.
+- [Document ingestion](projects/taxahead/source/supabase/functions/_shared/document-ingest.ts): database-enforced duplicate detection, storage upload, and recovery of incomplete records.
+- [Handler tests](projects/taxahead/source/supabase/functions/ask-taxahead/index.test.ts) and [ingestion tests](projects/taxahead/source/supabase/functions/_shared/document-ingest.test.ts): fictional inputs and injected service boundaries.
+
+**Status:** Work in progress, awaiting founder go-to-market. The application workspace requires sign-in.
+
+## PasturePact — checkout, transactions, and payment orchestration
+
+**[Source and reading guide](projects/pasturepact/) · [Demo](https://pasturepact.netlify.app/demo)**
+
+A farm-direct marketplace built in one month. The selected backend source shows the difficult parts of checkout: binding accepted prices, preventing duplicate commands, coordinating background payment work, and handling uncertain provider outcomes.
+
+- [Checkout API](projects/pasturepact/source/supabase/functions/create-checkout/index.ts) → [transaction and quote binding](projects/pasturepact/source/supabase/migrations/20260926000700_quote_checkout_binding.sql): request identity, database locks, version checks, accepted totals, and replayable results.
+- [Payment worker](projects/pasturepact/source/supabase/functions/payment-worker/index.ts): leased jobs, stored provider configuration, operation admission, completion, and recovery.
+- [Group-operation recovery](projects/pasturepact/source/supabase/functions/_shared/group-provider-operation.ts): provider identity checks and recovery after uncertain responses.
+- [Signature verification](projects/pasturepact/source/supabase/functions/_shared/stripe-signature.ts) and [negative tests](projects/pasturepact/source/tests/stripe-signature.test.ts): tampered bodies, wrong keys, replay windows, and signing-key rotation.
+- [Worker tests](projects/pasturepact/source/tests/payment-worker-stored-config.test.ts) and [recovery tests](projects/pasturepact/source/tests/group-provider-operation.test.ts) exercise actual modules with mocked database/provider I/O.
+
+**Status:** Work in progress, awaiting founder go-to-market. The public demo is in test mode and collects no real payment.
 
 ## Public tools
 
-| Tool | Repository | What to inspect |
+| Tool | Source | Focus |
 | --- | --- | --- |
-| Baton | [Eobodoechine/baton](https://github.com/Eobodoechine/baton) | AI coding-session handoffs, repository-state checks, and receiver acceptance. |
-| Voice Gate | [Eobodoechine/voice-gate](https://github.com/Eobodoechine/voice-gate) | Configurable writing checks and hard versus advisory findings. |
-| Distressed Homes Finder | [Eobodoechine/distressed-homes-finder](https://github.com/Eobodoechine/distressed-homes-finder) | Property discovery, source enrichment, and verification workflow. |
-| Apartment Rental Scraper | [Eobodoechine/apartment-rental-scraper](https://github.com/Eobodoechine/apartment-rental-scraper) | Rental-search tooling and its repository documentation. |
-| Resume Tailor | [Eobodoechine/resume-tailor](https://github.com/Eobodoechine/resume-tailor) | Resume-tailoring workflow and its repository files. |
-| Loop Engineering | [Eobodoechine/loop-engineering](https://github.com/Eobodoechine/loop-engineering) | Agent workflow framework and independent verification checks. |
+| Baton | [Repository](https://github.com/Eobodoechine/baton) | AI coding-session handoffs, repository-state checks, and receiver acceptance. |
+| Voice Gate | [Repository](https://github.com/Eobodoechine/voice-gate) | Configurable writing checks and hard versus advisory findings. |
+| Distressed Homes Finder | [Repository](https://github.com/Eobodoechine/distressed-homes-finder) | Property discovery, enrichment, and verification. |
+| Apartment Rental Scraper | [Repository](https://github.com/Eobodoechine/apartment-rental-scraper) | Rental-search tooling. |
+| Resume Tailor | [Repository](https://github.com/Eobodoechine/resume-tailor) | Evidence-based resume preparation. |
+| Loop Engineering | [Repository](https://github.com/Eobodoechine/loop-engineering) | Agent workflows and independent verification. |
 
-These six repositories were confirmed public. Their complete tool workflows were not rerun during this portfolio preparation.
+## Run and inspect
 
-## Run the selected examples
-
-Use Node.js 22.18 or newer. There are no package dependencies to install.
-
-```sh
-npm run check
-```
-
-The test suite uses only fictional inputs, temporary usage ledgers, and mock service responses. It makes no live AI requests, connects to no production database, and performs no payment operation. Nineteen focused tests cover the supplied examples.
-
-## Source and permissions
-
-[provenance.json](provenance.json) records the source revisions, file hashes, and excerpt changes. Tests were added for this portfolio. PropertyVision's address sample is a snapshot of a modified working file, with example addresses in comments replaced by fictional addresses. Its usage-budget sample is an unchanged snapshot of an untracked source file. The original working copies were not changed.
-
-PasturePact and TaxAhead samples are shared with founder permission for public portfolio review. Their full repositories and private history remain private. No additional open-source license is granted for those excerpts by this portfolio. The linked tools retain their own repository licenses.
-
+See [VERIFICATION.md](VERIFICATION.md) for test commands, results, and their scope. [provenance.json](provenance.json) records exact source revisions and file hashes. New founder examples contain complete source modules with their local imports preserved; they are selected slices rather than complete deployable founder repositories. No customer records, provider credentials, or private repository history are included. Founder excerpts are shared for portfolio review; this repository does not grant an additional open-source license for them.

@@ -1,50 +1,7 @@
-# PropertyVision: end-to-end product walkthrough
+# PropertyVision end to end
 
-**[Open the published product](https://demo.neoventurez.com/)**
+**[Full application repository](https://github.com/Eobodoechine/propertyvision) · [Live product](https://demo.neoventurez.com/) · [Code tour](https://github.com/Eobodoechine/propertyvision/blob/main/CODE_TOUR.md)**
 
-PropertyVision is the project behind the NEO Venturez demo URL. It is my first production system and the live, fully integrated product in this portfolio. TaxAhead and PasturePact remain works in progress awaiting their founders' go-to-market launches.
+The complete source and its request-by-request reading guide are now in the dedicated PropertyVision repository. Start with the page, follow its analysis API into the Redis queue and worker, then inspect the research orchestration, provider integrations, valuation engine, and stored result.
 
-## What to try
-
-1. Open the product without signing in. When a saved report is available, the page opens it immediately.
-2. Review the ARV summary, property facts, comparable properties, sale dates, and listing-search links. ARV means estimated after-repair value.
-3. Enter a full street address and select **Analyze Property** to request another analysis. The page warns that an analysis can take several minutes. Usage limits can defer new requests.
-4. Follow the analysis status, then inspect the resulting estimate and comparable properties.
-
-On October 15, 2026, this portfolio review observed a saved result with an ARV summary and six comparable properties on the public page. It did not submit a fresh analysis or independently validate the underlying sales or valuation accuracy. Listing-search links are a starting point for checking records, not verified source documents.
-
-## How the system fits together
-
-```mermaid
-flowchart LR
-  UI[Next.js / React interface] --> API[Analysis API]
-  API --> Q[Redis job queue]
-  Q --> W[Background worker]
-  W --> P[Property details and comparable search]
-  P --> V[Vertex AI and geocoding]
-  V --> N[Normalize, filter, and deduplicate]
-  N --> A[ARV calculation]
-  A --> R[Saved result in Redis]
-  R --> UI
-```
-
-This map follows the inspected source snapshot. The UI submits an address and polls a job identifier. A separate worker runs property analysis, stores progress and results, and records failures. The page can reopen a saved report, so viewing an existing result does not require repeating the analysis.
-
-The analysis API includes a per-network request limit. The separate usage-budget module below is a standalone source sample: its reservation functions have no callers in the inspected application snapshot, so they are not shown as part of the connected request path.
-
-The source uses Next.js, React, TypeScript, a Node.js worker, Redis, Vertex AI, and geocoding. The public source archive below is an earlier revision; it is not asserted to be identical to the live deployment or this local source snapshot.
-
-## Code to discuss in an interview
-
-| Engineering decision | Public evidence | What it shows |
-| --- | --- | --- |
-| Normalize inconsistent addresses | [Address matching source](addressNormalizer.ts) | Component-based comparisons and explicit limits of permissive matching. |
-| Explore persistent usage accounting | [Standalone usage-budget source](usage-budget.js) | Tested logic for reservations, exhausted allowances, concurrent-analysis limits, and unknown outcomes. These functions are not wired into requests in the inspected snapshot. |
-| Test the failure paths | [Budget tests](../../tests/usage-budget.test.mjs) · [Other sample tests](../../tests/samples.test.mjs) | Exhausted allowance, oversized input, locked/corrupt accounting state, expired access, and address mismatches. |
-| Connect the interface to provider-backed analysis | [Existing public source archive](https://github.com/Eobodoechine/PropertyVision1) | Earlier application and provider-integration code. More current code can be shared on request. |
-
-The standalone budget module uses local persistent accounting and estimated provider costs. Its tests use temporary fictional accounting files and make no cloud requests. They do not prove live spending limits, provider invoices, or distributed accounting.
-
-## Build context
-
-I built PropertyVision and TaxAhead with less than $1,000 in spend. This is my reported build-spend figure, not a monthly hosting price. I built PasturePact in one month. I can walk through more of the codebases and explain my implementation decisions on request.
+PropertyVision is my first production system. The public demo allows viewing a saved report and submitting an address for analysis. The portfolio preparation observed a saved report; it did not rerun a paid valuation or independently assess valuation accuracy.

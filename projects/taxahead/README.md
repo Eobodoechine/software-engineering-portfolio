@@ -1,20 +1,23 @@
-# TaxAhead
+# TaxAhead — complete backend modules
 
-[Public site](https://tanstack-start-ts.taxahead.workers.dev/) · [Code sample](kb-reranker.ts)
+[Demo](https://tanstack-start-ts.taxahead.workers.dev/) · [Browse the selected source](source/)
 
-I worked with TaxAhead's founder. The demo and selected source sample are shared with permission.
+I worked with TaxAhead's founder to build a tax-readiness application. These complete backend modules and their local dependencies are shared with permission. The product remains in development, awaiting founder go-to-market; the application workspace requires sign-in.
 
-TaxAhead is a tax-readiness application built with React, TypeScript, TanStack Start, and Supabase. Its code includes document extraction, evidence organization, readiness scoring, and grounded question answering.
+## Read one question through the system
 
-**Current status:** Work in progress, awaiting the founder's go-to-market launch. The deployed public site and sign-in page are available; the application workspace requires authentication. The product prepares evidence for review; it does not file returns. This portfolio review has not verified all authenticated workflows or integrations.
+1. [ask-taxahead/index.ts](source/supabase/functions/ask-taxahead/index.ts) is the complete answer handler. Start at `handler`, then inspect `searchKB`, `parseToolInput`, and `validateGroundedAnswer`. It loads the filing unit's evidence, invokes retrieval and a model, validates returned citation identities, and records run outcomes.
+2. [search-knowledge/index.ts](source/supabase/functions/search-knowledge/index.ts) shows the search endpoint: validate input, create an embedding, call hybrid search, rerank candidates, and return source metadata with citation keys. Jurisdiction, tax-year, effective-date, and confidence filters are passed to the search RPC.
+3. [kb-reranker.ts](source/supabase/functions/_shared/kb-reranker.ts) handles the external ranking response and deterministic fallback. [kb-embeddings.ts](source/supabase/functions/_shared/kb-embeddings.ts) contains the embedding provider integration.
+4. [document-ingest.ts](source/supabase/functions/_shared/document-ingest.ts) shows how connector-fetched bytes enter document storage. It relies on a database unique constraint for duplicate detection and distinguishes a completed duplicate from a row whose upload never finished.
+5. Read the [answer-handler tests](source/supabase/functions/ask-taxahead/index.test.ts) and [ingestion tests](source/supabase/functions/_shared/document-ingest.test.ts) alongside those files. They use fictional data, fake clients, and injected provider responses.
 
-## Selected code
+## Engineering decisions to inspect
 
-The sample reorders retrieved documents by relevance. It calls Cohere through an injected HTTP function, validates result counts and indices, and falls back to keyword-overlap scoring if the provider fails or responds with invalid data.
+- Model output is parsed into an explicit result contract. Citation markers must match known evidence and returned citation IDs.
+- Search results retain source and jurisdiction metadata through reranking.
+- Duplicate-document handling distinguishes an actual PostgreSQL unique violation from other insert failures.
+- Incomplete storage records return a specific failure rather than being mislabeled as successful duplicates.
+- Trace and log helpers make failure paths observable while redacting sensitive values.
 
-The provider error path logs a generic failure instead of the provider's response body. Source metadata travels with the ranked results. The fallback combines keyword overlap with the original retrieval score.
-
-The tests use mock responses, explicitly disabled credentials, and fictional documents. They cover a valid response, duplicate indices, an out-of-range index, an HTTP failure, and deterministic fallback ordering.
-
-This is the backend ranking module, not the full retrieval pipeline or an assessment of answer accuracy. Callers remain responsible for valid input and topK values. No live Cohere request was made in these tests.
-
+These are selected modules, not the private application's full schema, UI, or deployment. The source tests and this portfolio's verification are described in [VERIFICATION.md](../../VERIFICATION.md). Citation validation checks references and formatting; it does not by itself prove factual or tax accuracy. The product prepares evidence for review and does not file returns.

@@ -12,17 +12,16 @@ for (const entry of manifest.samples) {
 const forbidden = /-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|gh[pousr]_[A-Za-z0-9]{30,}|AKIA[A-Z0-9]{16}|sk_live_[A-Za-z0-9]{20,}/;
 assert.equal(forbidden.test('ghp_' + 'a'.repeat(36)), true, 'Secret-pattern negative control must fire');
 const allowed = new Set([
-  '.gitignore', 'README.md', 'package.json', 'provenance.json', 'scripts/check-package.mjs',
-  'tests/samples.test.mjs', 'projects/propertyvision/README.md',
-  'projects/propertyvision/addressNormalizer.ts', 'projects/taxahead/README.md',
-  'projects/taxahead/kb-reranker.ts', 'projects/pasturepact/README.md',
-  'projects/pasturepact/cart.ts', 'projects/pasturepact/types.ts',
-  'projects/propertyvision/usage-budget.js', 'projects/propertyvision/SYSTEM.md',
-  'tests/usage-budget.test.mjs',
+  '.gitignore', 'README.md', 'VERIFICATION.md', 'package.json', 'package-lock.json', 'deno.lock', 'provenance.json',
+  'vitest.config.ts', 'scripts/check-package.mjs', 'tests/samples.test.mjs', 'tests/usage-budget.test.mjs',
+  'projects/propertyvision/README.md', 'projects/propertyvision/SYSTEM.md',
+  'projects/taxahead/README.md', 'projects/pasturepact/README.md',
+  ...manifest.samples.map(entry => entry.sample_path),
 ]);
+
 function walk(dir, prefix = '') {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (entry.name === '.git') continue;
+    if (entry.name === '.git' || entry.name === 'node_modules') continue;
     const relative = prefix + entry.name;
     if (entry.isDirectory()) walk(path.join(dir, entry.name), relative + '/');
     else {

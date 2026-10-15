@@ -1,20 +1,9 @@
-# PropertyVision
+# PropertyVision — full application source
 
-[Use the product](https://demo.neoventurez.com/) · [End-to-end walkthrough](SYSTEM.md) · [Existing public source repository](https://github.com/Eobodoechine/PropertyVision1)
+**[Full repository](https://github.com/Eobodoechine/propertyvision) · [Live product](https://demo.neoventurez.com/) · [Code tour](https://github.com/Eobodoechine/propertyvision/blob/main/CODE_TOUR.md)**
 
-PropertyVision is the project behind demo.neoventurez.com. It was my first production system and is my fully integrated, published product available for people to use. It brings property research, comparable sales, and an after-repair value estimate into one web application.
+PropertyVision is my first production system and the published product behind NEO Venturez. Review the full repository for the interface, API routes, queue, worker, research engine, valuation, and persistence.
 
-**Current status:** Live product, according to my account as its builder. The portfolio review observed the public page displaying a saved ARV report with six comparable properties and an address input for new analysis. It did not run a fresh valuation or assess valuation accuracy. The public source archive is not claimed to be the exact deployed revision.
+The full source is now the main showcase. The older [address utility](addressNormalizer.ts) and [standalone usage-budget experiment](usage-budget.js) remain here with their focused tests and source provenance. The budget experiment is not connected to the inspected application's request path.
 
-## Selected code
-
-The [TypeScript address sample](addressNormalizer.ts) normalizes address strings and compares components such as house number, street name, street type, unit, and ZIP code. This supports discussion of inconsistent provider data, duplicate detection, and cache-key normalization.
-
-The matching rules are deliberately permissive: directionals are ignored, and a missing unit on one side can still match. Those choices can merge addresses that need to be distinguished. This is a heuristic to combine with other property evidence, not an authoritative identity service.
-
-The tests show accepted aliases and rejected mismatches. A separate test makes the permissive directional and missing-unit behavior visible.
-
-The [standalone usage-budget sample](usage-budget.js) implements estimated provider-usage reservations, a persistent allowance, and concurrent-analysis limits. Its tests cover exhausted limits and invalid state without making cloud requests. No callers of these reservation functions were found in the inspected app snapshot. The [system walkthrough](SYSTEM.md) separates this example from the connected product flow.
-
-The source snapshots and their working-file status are recorded in the root provenance file. Only fictional example addresses were substituted in address-sample comments. No production property records are included.
-
+The [earlier public repository](https://github.com/Eobodoechine/PropertyVision1) preserves the earlier application history. The new repository contains the more recent working application snapshot, with publication changes documented in its manifest.
