@@ -8,28 +8,38 @@ I built PropertyVision and TaxAhead with less than $1,000 in combined spend, and
 
 | Project | Product status | Public code |
 | --- | --- | --- |
-| [PropertyVision](https://github.com/Eobodoechine/propertyvision) | Published NEO Venturez product; my first production system. | Full application snapshot in its own repository: interface, APIs, queue, worker, AI research, valuation, and persistence. |
+| [PropertyVision](projects/propertyvision/) | Published NEO Venturez product; my first production system. | Full application included here under `projects/propertyvision/`: interface, APIs, queue, worker, AI research, valuation, and persistence. |
 | [TaxAhead](projects/taxahead/) | Work in progress, awaiting founder go-to-market. | 16 files under `source/`: complete answer/search handlers, ingestion and shared modules, test support, and 2 test files. |
 | [PasturePact](projects/pasturepact/) | Work in progress, awaiting founder go-to-market; public demo uses test mode. | 16 files under `source/`: checkout and payment-worker handlers, shared modules, 2 SQL migrations, and 3 test files. |
 
-Start with PropertyVision's [code tour](https://github.com/Eobodoechine/propertyvision/blob/main/CODE_TOUR.md) to follow an entire application. The founder examples below expose complete backend modules and their tests. Each project's README gives a reading order and explains what is included.
+Start with PropertyVision's [code tour](projects/propertyvision/CODE_TOUR.md) to follow an entire application. The founder examples below expose complete backend modules and their tests. Each project's README gives a reading order and explains what is included.
 
 ## PropertyVision — full application
 
-**[Full PropertyVision repository](https://github.com/Eobodoechine/propertyvision) · [Live product](https://demo.neoventurez.com/) · [Read the code end to end](https://github.com/Eobodoechine/propertyvision/blob/main/CODE_TOUR.md)**
+**[Full PropertyVision code in this repository](projects/propertyvision/) · [Live product](https://demo.neoventurez.com/) · [Read the code end to end](projects/propertyvision/CODE_TOUR.md)**
 
-A property-analysis application that takes an address through AI-backed research, comparable-sales selection, and an estimated after-repair value. The repository includes the interface, API, queue, worker, research engine, valuation logic, persistence, and configuration.
+A property-analysis application that takes an address through AI-backed research, comparable-sales selection, and an estimated after-repair value. The complete application is included directly in [projects/propertyvision/](projects/propertyvision/): all 80 source files, 5 public assets, API routes, Redis queue, background worker, research engine, valuation logic, persistence, dependency lockfile, and application configuration. You can read the whole product without leaving this repository.
 
 | Read this | What it shows |
 | --- | --- |
-| [Product interface](https://github.com/Eobodoechine/propertyvision/blob/main/src/app/page.tsx) | Address submission, asynchronous status, saved reports, and comparable-sales results. |
-| [Analysis API](https://github.com/Eobodoechine/propertyvision/blob/main/src/app/api/analyze/route.ts) | The boundary between a user request, cached data, and queued work. |
-| [Redis job queue](https://github.com/Eobodoechine/propertyvision/blob/main/src/server/utils/jobQueue.ts) | Stream consumption, concurrent jobs, retries, cancellation, and result persistence. |
-| [Research orchestration](https://github.com/Eobodoechine/propertyvision/blob/main/src/server/comprehensive-comp-search-v10.ts) | How subject research, comparable searches, filtering, and valuation fit together. |
-| [Vertex AI integration](https://github.com/Eobodoechine/propertyvision/blob/main/src/server/vertex-details.ts) | Provider requests, timeouts, parsing, caching, and reconciliation. |
-| [Valuation engine](https://github.com/Eobodoechine/propertyvision/blob/main/src/server/arvCalculator.js) | The calculation behind the report and its supporting metadata. |
+| [Product interface](projects/propertyvision/src/app/page.tsx) | Address submission, asynchronous status, saved reports, and comparable-sales results. |
+| [Analysis API](projects/propertyvision/src/app/api/analyze/route.ts) | The boundary between a user request, cached data, and queued work. |
+| [Redis job queue](projects/propertyvision/src/server/utils/jobQueue.ts) | Stream consumption, concurrent jobs, retries, cancellation, and result persistence. |
+| [Research orchestration](projects/propertyvision/src/server/comprehensive-comp-search-v10.ts) | How subject research, comparable searches, filtering, and valuation fit together. |
+| [Vertex AI integration](projects/propertyvision/src/server/vertex-details.ts) | Provider requests, timeouts, parsing, caching, and reconciliation. |
+| [Valuation engine](projects/propertyvision/src/server/arvCalculator.js) | The calculation behind the report and its supporting metadata. |
 
-**Stack:** Next.js, React, TypeScript, Node.js, Redis, Vertex AI, and Google Maps. The public repository is a sanitized working-source snapshot; its manifest records the publication changes. It is not a claim of an exact deployed revision.
+**Stack:** Next.js, React, TypeScript, Node.js, Redis, Vertex AI, and Google Maps. The full source is the same sanitized snapshot published in the standalone PropertyVision repository. [Import provenance](provenance.json) records the pinned revision and every copied file; the application's [source manifest](projects/propertyvision/SOURCE_MANIFEST.json) records the earlier publication changes. It is not a claim of an exact deployed revision.
+
+To build the included application from the portfolio root:
+
+```sh
+cd projects/propertyvision
+npm ci
+PV_LOCAL_DEMO=true npm run build
+```
+
+See the [application README](projects/propertyvision/README.md#stack-and-build) for the web server, separate worker, Redis, and provider setup. The inherited build skips type/lint failures; a successful build does not establish a fresh AI analysis.
 
 ## TaxAhead — grounded AI and document ingestion
 
@@ -86,10 +96,10 @@ npm run test:taxahead
 
 The recorded October 15, 2026 run passed **131 tests**: 19 original utility tests, 70 PasturePact backend tests, and 42 TaxAhead backend tests. `npm run check` checks the file list and source hashes, then runs the first 89 tests. The Deno command runs the remaining 42 with runtime network access denied; it may download public dependencies before execution. See [VERIFICATION.md](VERIFICATION.md) for the exact scope and expected tracing warning.
 
-These tests use fictional data and controlled service boundaries. They do not prove a live purchase, database migration, or deployed AI workflow. PropertyVision has separate [build and local HTTP checks](https://github.com/Eobodoechine/propertyvision/blob/main/VERIFICATION.md).
+These tests use fictional data and controlled service boundaries. They do not prove a live purchase, database migration, or deployed AI workflow. PropertyVision has separate [build and local HTTP checks](projects/propertyvision/VERIFICATION.md).
 
 ## Publication scope
 
-[provenance.json](provenance.json) records source revisions and file hashes. The founder examples preserve complete selected modules and their local imports; the private applications' full UI, schema, and deployment are not included. The earlier address, budget, reranking, and cart examples remain alongside the larger source selections. The standalone budget experiment is not connected to PropertyVision's request path.
+[provenance.json](provenance.json) records the full PropertyVision import and the founder examples with source revisions and file hashes. The founder examples preserve complete selected modules and their local imports; the private applications' full UI, schema, and deployment are not included. The earlier address, budget, reranking, and cart examples remain alongside the larger source selections. The standalone budget experiment is not connected to PropertyVision's request path.
 
 No customer records, provider credentials, or private repository history are included. Founder excerpts are shared with permission for portfolio review; this repository does not grant an additional open-source license for them. More code is available on request.

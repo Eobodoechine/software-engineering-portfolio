@@ -9,6 +9,11 @@ for (const entry of manifest.samples) {
   const bytes = fs.readFileSync(path.join(root, entry.sample_path));
   assert.equal(createHash('sha256').update(bytes).digest('hex'), entry.sample_sha256, entry.sample_path);
 }
+const applicationFiles = (manifest.applications ?? []).flatMap(application => application.files);
+for (const entry of applicationFiles) {
+  const bytes = fs.readFileSync(path.join(root, entry.path));
+  assert.equal(createHash('sha256').update(bytes).digest('hex'), entry.published_sha256, entry.path);
+}
 const forbidden = /-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|gh[pousr]_[A-Za-z0-9]{30,}|AKIA[A-Z0-9]{16}|sk_live_[A-Za-z0-9]{20,}/;
 assert.equal(forbidden.test('ghp_' + 'a'.repeat(36)), true, 'Secret-pattern negative control must fire');
 const allowed = new Set([
@@ -17,12 +22,16 @@ const allowed = new Set([
   'projects/propertyvision/README.md', 'projects/propertyvision/SYSTEM.md',
   'projects/taxahead/README.md', 'projects/pasturepact/README.md',
   ...manifest.samples.map(entry => entry.sample_path),
+  ...applicationFiles.map(entry => entry.path),
 ]);
 
 function walk(dir, prefix = '') {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     if (entry.name === '.git' || entry.name === 'node_modules') continue;
     const relative = prefix + entry.name;
+    if (entry.isDirectory() && relative === 'projects/propertyvision/.next') continue;
+    if (relative === 'projects/propertyvision/tsconfig.tsbuildinfo') continue;
+    assert.equal(entry.isSymbolicLink(), false, 'Unexpected symlink: ' + relative);
     if (entry.isDirectory()) walk(path.join(dir, entry.name), relative + '/');
     else {
       assert.equal(allowed.has(relative), true, 'Unexpected file: ' + relative);
