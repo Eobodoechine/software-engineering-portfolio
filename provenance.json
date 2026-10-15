@@ -1,0 +1,44 @@
+{
+  "prepared_on": "2026-10-15",
+  "scope": "Selected code snapshots; source revisions are provenance, not assertions about deployed revisions. Tests were added for this portfolio.",
+  "samples": [
+    {
+      "project": "TaxAhead",
+      "source_revision": "29a6922492d237b7d8617cf67e46813087864ed4",
+      "source_path": "supabase/functions/_shared/kb-reranker.ts",
+      "source_worktree_modified": false,
+      "source_sha256": "9cdba828217dae43050b006b1f5d2a7390205c053712e2f916aa2a83f64d7c07",
+      "sample_path": "projects/taxahead/kb-reranker.ts",
+      "sample_sha256": "9cdba828217dae43050b006b1f5d2a7390205c053712e2f916aa2a83f64d7c07",
+      "changes": "Unchanged source module."
+    },
+    {
+      "project": "PropertyVision",
+      "source_revision": "7263708075fa0325363c00e767a8d5984a0a5636",
+      "source_path": "src/server/utils/addressNormalizer.ts",
+      "source_worktree_modified": true,
+      "source_sha256": "b6a7dd4b5b2cee3a6860441427a7cb92bcbf593af079e9642640c45e56c54b06",
+      "sample_path": "projects/propertyvision/addressNormalizer.ts",
+      "sample_sha256": "7270ce1a9689c2f0107c033242355296088a8f4df235fdf1ed2e8fdb5ff7f4e4",
+      "changes": "Example addresses in comments replaced with fictional addresses; logic unchanged."
+    },
+    {
+      "project": "PasturePact",
+      "source_revision": "897f54f8ad53ee4c3147097e8dd63b134f5bf5f2",
+      "source_path": "apps/web/src/lib/cart.ts",
+      "sample_path": "projects/pasturepact/cart.ts",
+      "sample_sha256": "d03b2927931babd7c2cb0bc87c79704b17edc4c9c9d2d66023ab6094b96f8932",
+      "changes": "Unchanged source module.",
+      "source_sha256": "d03b2927931babd7c2cb0bc87c79704b17edc4c9c9d2d66023ab6094b96f8932"
+    },
+    {
+      "project": "PasturePact",
+      "source_revision": "897f54f8ad53ee4c3147097e8dd63b134f5bf5f2",
+      "source_path": "apps/web/src/lib/types.ts",
+      "sample_path": "projects/pasturepact/types.ts",
+      "sample_sha256": "b4d8992e91dada9a394b01f3d6adcdf03ce6628d52284a2246bbaa33e722b266",
+      "changes": "Only the ShareUnits, CatalogOffering, and CartSelection type declarations are included.",
+      "source_sha256": "f2dc4091617c33d0cdec47b522f09fd4ba597d7da1ba7e9a84024b930aca3c31"
+    }
+  ]
+}
