@@ -14,7 +14,7 @@ The matching rules are deliberately permissive: directionals are ignored, and a 
 
 The tests show accepted aliases and rejected mismatches. A separate test makes the permissive directional and missing-unit behavior visible.
 
-The [usage-budget sample](usage-budget.js) reserves estimated provider usage before requests, checks a persistent allowance, and restricts concurrent analysis. Its tests cover exhausted limits and invalid state without making cloud requests. The [system walkthrough](SYSTEM.md) explains how these controls fit into the product and their limits.
+The [standalone usage-budget sample](usage-budget.js) implements estimated provider-usage reservations, a persistent allowance, and concurrent-analysis limits. Its tests cover exhausted limits and invalid state without making cloud requests. No callers of these reservation functions were found in the inspected app snapshot. The [system walkthrough](SYSTEM.md) separates this example from the connected product flow.
 
 The source snapshots and their working-file status are recorded in the root provenance file. Only fictional example addresses were substituted in address-sample comments. No production property records are included.
 

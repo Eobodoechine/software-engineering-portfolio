@@ -26,10 +26,11 @@ flowchart LR
   N --> A[ARV calculation]
   A --> R[Saved result in Redis]
   R --> UI
-  B[Usage reservations and request limits] -.-> V
 ```
 
 This map follows the inspected source snapshot. The UI submits an address and polls a job identifier. A separate worker runs property analysis, stores progress and results, and records failures. The page can reopen a saved report, so viewing an existing result does not require repeating the analysis.
+
+The analysis API includes a per-network request limit. The separate usage-budget module below is a standalone source sample: its reservation functions have no callers in the inspected application snapshot, so they are not shown as part of the connected request path.
 
 The source uses Next.js, React, TypeScript, a Node.js worker, Redis, Vertex AI, and geocoding. The public source archive below is an earlier revision; it is not asserted to be identical to the live deployment or this local source snapshot.
 
@@ -38,11 +39,11 @@ The source uses Next.js, React, TypeScript, a Node.js worker, Redis, Vertex AI, 
 | Engineering decision | Public evidence | What it shows |
 | --- | --- | --- |
 | Normalize inconsistent addresses | [Address matching source](addressNormalizer.ts) | Component-based comparisons and explicit limits of permissive matching. |
-| Put limits around AI usage | [Usage-budget source](usage-budget.js) | Reserve estimated usage before a request, reject exhausted allowances, limit concurrent analysis, and retain charges when an outcome is unknown. |
+| Explore persistent usage accounting | [Standalone usage-budget source](usage-budget.js) | Tested logic for reservations, exhausted allowances, concurrent-analysis limits, and unknown outcomes. These functions are not wired into requests in the inspected snapshot. |
 | Test the failure paths | [Budget tests](../../tests/usage-budget.test.mjs) · [Other sample tests](../../tests/samples.test.mjs) | Exhausted allowance, oversized input, locked/corrupt accounting state, expired access, and address mismatches. |
 | Connect the interface to provider-backed analysis | [Existing public source archive](https://github.com/Eobodoechine/PropertyVision1) | Earlier application and provider-integration code. More current code can be shared on request. |
 
-The budget module uses local persistent accounting and estimated provider costs. It is an application control, not a guarantee of the provider's invoice or a general distributed billing system. Its tests use temporary fictional accounting files and make no cloud requests.
+The standalone budget module uses local persistent accounting and estimated provider costs. Its tests use temporary fictional accounting files and make no cloud requests. They do not prove live spending limits, provider invoices, or distributed accounting.
 
 ## Build context
 

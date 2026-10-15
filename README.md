@@ -21,7 +21,7 @@ The selected code below is public and can be read without access to the private 
 ## Start with the code
 
 - **[PropertyVision: address matching](projects/propertyvision/addressNormalizer.ts)** shows normalization and a heuristic for detecting repeated properties across source formats. [Context and limitations](projects/propertyvision/README.md).
-- **[PropertyVision: usage budgets](projects/propertyvision/usage-budget.js)** shows estimated-cost reservations, usage limits, and refusal when accounting state is unavailable. [System walkthrough](projects/propertyvision/SYSTEM.md).
+- **[PropertyVision: standalone usage-budget sample](projects/propertyvision/usage-budget.js)** shows estimated-cost reservations and refusal when accounting state is unavailable. Its reservation functions are not wired into requests in the inspected app snapshot. [System walkthrough](projects/propertyvision/SYSTEM.md).
 - **[TaxAhead: retrieval ranking](projects/taxahead/kb-reranker.ts)** shows an external AI service integration, response validation, and a deterministic fallback when the service fails. [Context and limitations](projects/taxahead/README.md).
 - **[PasturePact: cart and retry state](projects/pasturepact/cart.ts)** shows separation of demo drafts from ordinary drafts and reuse of checkout command identifiers after a lost response. [Context and limitations](projects/pasturepact/README.md).
 - **[Tests](tests/samples.test.mjs)** exercise these examples with fictional inputs, malformed provider responses, and corrupted browser state.
