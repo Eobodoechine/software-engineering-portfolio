@@ -396,13 +396,15 @@ export class ParallelSearchOrchestrator {
    * made the target slice depend on API latency. One sale also arrives under several search
    * spellings ("Audubon Dr NE" vs "Audubon Dr"), and those duplicates consumed target slots,
    * handing the ARV fewer unique houses than it reported and dropping it onto the 3-comp path.
+   * scoreComparable is lower-is-better, so sort ascending: the closest matches come first and
+   * survive the targetComps slice.
    */
   private orderDistinctByScore(
     comps: ComparableProperty[],
     subject: SubjectProperty
   ): ComparableProperty[] {
     const sorted = [...comps].sort((a, b) =>
-      scoreComparable(b, subject) - scoreComparable(a, subject) ||
+      scoreComparable(a, subject) - scoreComparable(b, subject) ||
       (a.distanceMi ?? a.distance ?? 0) - (b.distanceMi ?? b.distance ?? 0) ||
       (a.address ?? '').localeCompare(b.address ?? '')
     );
